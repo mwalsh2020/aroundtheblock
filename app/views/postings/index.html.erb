@@ -1,0 +1,10 @@
+<h1>Job Postings</h1>
+<div>
+  <ul>
+    <% @postings.each do |posting| %>
+      <li> Title: <%= posting.title %> </li>
+      <li> Description: <%= posting.description %> </li>
+    <% end %>
+  <ul>
+</div>
+
