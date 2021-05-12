@@ -1,8 +1,7 @@
 user = User.create!(
-  email: "mattnwalsh@gmail.com",
+  email: "b@a.com",
   password: "123456"
 )
-
 
 Posting.destroy_all if Rails.env.development?
 
