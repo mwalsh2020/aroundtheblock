@@ -1,10 +1,27 @@
 <h1>Job Postings</h1>
+
+<div>
+  <h1>Create a new posting</h1>
+  <div>
+    <%= form_for @posting, method: :post do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <%= f.label :price %>
+      <%= f.number_field :price %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+
 <div>
   <ul>
     <% @postings.each do |posting| %>
-      <li> Title: <%= posting.title %> </li>
+      <li> <b>Title: <%= posting.title %> </b></li>
       <li> Description: <%= posting.description %> </li>
     <% end %>
   <ul>
 </div>
+
 

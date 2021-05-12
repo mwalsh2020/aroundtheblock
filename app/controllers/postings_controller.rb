@@ -1,24 +1,23 @@
 class PostingsController < ApplicationController
   def index
     @postings = Posting.all
-  end
-
-  def new
     @posting = Posting.new
   end
 
+
   def create
     @posting = Posting.new(posting_params)
-     if @restaurant.save
+    @posting.user = current_user
+    @postings = Posting.all
+     if @posting.save
       redirect_to posting_path(@posting)
     else
-      render "new"
+      render "index"
     end
   end
 
   def show
     @posting = Posting.find(params[:id])
-    @comment = Comment.new
   end
 
   def edit
@@ -32,7 +31,7 @@ class PostingsController < ApplicationController
 
   private
 
-  def postings_params
+  def posting_params
     params.require(:posting).permit(:title, :description, :price)
   end
 

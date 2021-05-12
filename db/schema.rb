@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_200128) do
+ActiveRecord::Schema.define(version: 2021_05_12_010055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.string "comment"
+    t.bigint "user_id"
+    t.bigint "posting_id"
+    t.boolean "is_accepted", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["posting_id"], name: "index_applications_on_posting_id"
+    t.index ["user_id"], name: "index_applications_on_user_id"
+  end
 
   create_table "postings", force: :cascade do |t|
     t.string "title"
@@ -32,13 +43,14 @@ ActiveRecord::Schema.define(version: 2021_05_08_200128) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "description"
-    t.boolean "is_company", default: false
+    t.string "profile"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applications", "postings"
+  add_foreign_key "applications", "users"
   add_foreign_key "postings", "users"
 end
