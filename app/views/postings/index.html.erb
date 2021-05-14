@@ -1,8 +1,11 @@
-<h1>Job Postings</h1>
+<div class=container>
+  <h1>Job Postings</h1>
+</div>
 
-<div>
-  <h1>Create a new posting</h1>
-  <div>
+
+<div class=container>
+  <h2>Create a new posting</h1>
+  <div class=container>
     <%= form_for @posting, method: :post do |f| %>
       <%= f.label :title %>
       <%= f.text_field :title %>
@@ -15,12 +18,14 @@
   </div>
 </div>
 
-<div>
+<div class=container>
   <ul>
     <% @postings.each do |posting| %>
+    <div class=container>
       <li> <b>Title: <%= posting.title %> </b></li>
       <li> Description: <%= posting.description %> </li>
     <% end %>
+  <div>
   <ul>
 </div>
 
