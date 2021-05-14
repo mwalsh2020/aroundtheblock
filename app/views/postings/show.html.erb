@@ -1,2 +1,17 @@
-<h1><%= @posting.title %></h1>
-<p> <%= @posting.description %> </p>
+<div class=container>
+
+  <h2 class="mt-3"> <%= @posting.title %> </h2>
+
+  <div class="card-product mt-3">
+    <%= image_tag("solana.png")%>
+    <div class="card-product-infos">
+      <p> Posted by: <%= @posting.user %> </p>
+      <p> Description: <%= @posting.description %>. </p>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to "I'm Interested!", "#", class: "btn-gradient" %>
+  </div>
+
+<div>
