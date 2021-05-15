@@ -1,8 +1,12 @@
 <div class='container py-5'>
   <h3> <%= @posting.title %> </h3>
-    <p> Posted by: <%= @posting.user %> </p>
+    <p> Posted by: <%= @posting.user.email %> </p>
     <br>
     <p> <%= @posting.description %>. </p>
-    <!-- if application exists in this post disable button and "application sent" -->
-    <%= link_to "Submit an Application", new_posting_application_path(@posting), class: 'btn_green' %>
+    <!-- User.first.applications.find_by_posting_id(1) -->
+    <% if current_user.applications.find_by_posting_id(@posting.id).nil? %>
+      <%= link_to "Submit an Application", new_posting_application_path(@posting), class: 'btn_green' %>
+    <% else %>
+      <h4>Thank you for your application!</h4>
+    <% end %>
 <div>
