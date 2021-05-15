@@ -1,0 +1,45 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card-preview {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-preview > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-preview h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-preview p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-preview .card-preview-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-preview-infos .card-preview-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}

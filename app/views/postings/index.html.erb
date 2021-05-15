@@ -1,21 +1,22 @@
 
   <div class="container py-5">
     <!-- link_to 'Post a Project', new_posting_path -->
-    <h4>Create a new posting</h4>
+    <h2>List a Project</h2>
     <div>
       <%= form_for @posting, method: :post do |f| %>
         <%= f.label :title %>
-        <%= f.text_field :title %>
-        <%= f.label :description %>
-        <%= f.text_field :description %>
+        <%= f.text_field :title, cols: 30, rows: 1 %>
         <%= f.label :price %>
         <%= f.number_field :price %>
+        <%= f.label :description %>
+        <%= f.text_area :description, cols: 80, rows: 5 %>
+
         <%= f.submit %>
       <% end %>
     </div>
   </div>
   <div class="container py-5">
-    <h4>Recent Projects Posted</h4>
+    <h2>Available Projects</h2>
     <br>
     <% @postings.each do |posting| %>
       <h5><strong><%= link_to posting.title, posting_path(posting) %></strong></h5>
