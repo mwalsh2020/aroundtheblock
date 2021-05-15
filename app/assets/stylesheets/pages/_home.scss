@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+h5 {
+  color: #888;
+}
+h4 {
+  color: $green;
+  font-weight: bold;
+}
+
+.btn_green {
+  background-color: $green;
+  border-radius: 60px;
+  color: white;
+  padding: 16px 31px;
+  font-size: smaller;
+}

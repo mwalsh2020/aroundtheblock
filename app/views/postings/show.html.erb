@@ -1,17 +1,8 @@
-<div class=container>
-
-  <h2 class="mt-3"> <%= @posting.title %> </h2>
-
-  <div class="card-product mt-3">
-    <%= image_tag("solana.png")%>
-    <div class="card-product-infos">
-      <p> Posted by: <%= @posting.user %> </p>
-      <p> Description: <%= @posting.description %>. </p>
-    </div>
-  </div>
-
-  <div class="mt-4">
-    <%= link_to "I'm Interested!", "#", class: "btn-gradient" %>
-  </div>
-
+<div class='container py-5'>
+  <h3> <%= @posting.title %> </h3>
+    <p> Posted by: <%= @posting.user %> </p>
+    <br>
+    <p> <%= @posting.description %>. </p>
+    <!-- if application exists in this post disable button and "application sent" -->
+    <%= link_to "Submit an Application", new_posting_application_path(@posting), class: 'btn_green' %>
 <div>

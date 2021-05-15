@@ -1,9 +1,7 @@
-<div class="container">
 
-  <h1>Job Postings</h1>
-
-  <div>
-    <h1>Create a new posting</h1>
+  <div class="container py-5">
+    <!-- link_to 'Post a Project', new_posting_path -->
+    <h4>Create a new posting</h4>
     <div>
       <%= form_for @posting, method: :post do |f| %>
         <%= f.label :title %>
@@ -16,18 +14,14 @@
       <% end %>
     </div>
   </div>
-
-  <div>
-    <ul>
-      <% @postings.each do |posting| %>
-        <li> <b>Title: <%= posting.title %> </b></li>
-        <li> Description: <%= posting.description %> </li>
-        <!-- if application created disable this button
-          and "application sent" -->
-        <%= link_to 'Submit Application', new_posting_application_path(posting) %>
-      <% end %>
-    <ul>
+  <div class="container py-5">
+    <h4>Recent Projects Posted</h4>
+    <br>
+    <% @postings.each do |posting| %>
+      <h5><strong><%= link_to posting.title, posting_path(posting) %></strong></h5>
+      <p><%= posting.description %></p>
+      <p>$<%= posting.price %></p>
+      <hr>
+    <% end %>
   </div>
-</div>
-
 
