@@ -1,17 +1,20 @@
 
   <div class="container py-5">
     <!-- link_to 'Post a Project', new_posting_path -->
-    <h2>List a Project</h2>
+    <h2 class="mb-4">List a Project</h2>
     <div>
       <%= form_for @posting, method: :post do |f| %>
         <%= f.label :title %>
         <%= f.text_field :title, cols: 30, rows: 1 %>
         <%= f.label :price %>
         <%= f.number_field :price %>
-        <%= f.label :description %>
-        <%= f.text_area :description, cols: 80, rows: 5 %>
-
-        <%= f.submit %>
+        <div>
+        <div>
+        <%= f.text_area :description, cols: 80, rows: 5, placeholder: "Describe your awesome project here. We know it's off the chain..." %>
+        <div>
+        <div>
+          <%= f.submit %>
+        </div>
       <% end %>
     </div>
   </div>
