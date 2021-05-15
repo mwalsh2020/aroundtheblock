@@ -1,9 +1,9 @@
 <div class="container py-5">
-  <h4>Submit an application</h4>
+  <h4>Let them know about your proposal</h4>
 
   <%= simple_form_for [@posting, @application] do |f| %>
   <%= f.input :comment %>
-  <%= f.submit %>
+  <%= f.button :submit, "Submit Application", class: 'btn_green' %>
   <% end %>
   <%= link_to 'Cancel', posting_path(@posting) %>
 </div>
