@@ -32,7 +32,7 @@ class PostingsController < ApplicationController
   private
 
   def posting_params
-    params.require(:posting).permit(:title, :description, :price)
+    params.require(:posting).permit(:title, :description, :price, :photo)
   end
 
 end
