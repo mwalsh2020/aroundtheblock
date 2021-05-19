@@ -16,7 +16,9 @@
     <div class="cards mt-3">
       <% @recent_posts.each do |p| %>
         <div class="card-preview">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="mt-2">
+            <%= cl_image_tag p.photo.key %>
+          </div>
           <div class="card-preview-infos">
             <div>
               <h2> <%= link_to "#{p.title}", "/postings/#{p.id}" %> </h2>

@@ -1,3 +1,7 @@
+require "open-uri"
+
+User.destroy_all if Rails.env.development?
+
 user = User.create!(
   email: "b@a.com",
   password: "123456"
@@ -5,12 +9,17 @@ user = User.create!(
 
 Posting.destroy_all if Rails.env.development?
 
-Posting.create!(
+
+
+posting1 = Posting.create!(
   user: user,
   title: "Create cryptocurrency complete startup",
   description: "Need complete startup for new cryptocurrency. We like to have token like TRC20 also need to develop android and iOS wallets.",
   price: 5000.00
 )
+
+file = URI.open('https://res.cloudinary.com/le-wagon21bitcoin/image/upload/v1621113565/amino/solana_uastgv.png')
+posting1.photo.attach(io: file, filename: 'solana.png', content_type: 'image/png')
 
 
 Posting.create!(
