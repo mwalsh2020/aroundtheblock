@@ -10,8 +10,12 @@
             <%= f.input :title, cols: 30, rows: 1 %>
             <%= f.input :price %>
             <%= f.input :description, cols: 80, rows: 5, placeholder: "Describe your awesome project here. We know it's off the chain..." %>
-            <%= f.input :photo, as: :file %>
-            <%= f.submit %>
+            <div style="height: 50px;" class="d-flex justify-content-between w-100">
+            <%#= f.input :photo, input_html: { class: 'd-none'} %>
+            <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+            <%= f.submit 'Submit', class: 'btn btn-gradient'%>
+
+            </div>
           <% end %>
         </div>
        </div>
