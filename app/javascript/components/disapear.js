@@ -3,11 +3,10 @@ const disapearApplications = () => {
 
   links.forEach((link) => {
     link.addEventListener('click', function(event) {
-
-      alert('approved!');
+      event.target.style.display = 'none';
+      // alert('You just approved an application!');
     });
   });
-
 };
 
 export { disapearApplications };

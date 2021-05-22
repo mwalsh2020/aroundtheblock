@@ -12,10 +12,47 @@ h3 {
   font-weight: bold;
 }
 
+p{
+  color: #2b2b2b;
+}
+
 .btn_green {
   background-color: $green;
   border-radius: 60px;
   color: white;
-  padding: 10px 31px;
+  padding: 12px 31px;
+  font-size: smaller;
+}
+
+.btn_green:hover {
+  background: linear-gradient(#23a861, #1c9e59);
+  color: white;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a:hover{
+   color: #177844;
+}
+
+.form-box{
+  padding: 32px;
+  border: 1px solid #e7e7e9;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.form-box-outline{
+  padding: 32px;
+  border: 1px solid #d4d4d4;
+  border-radius: 12px;
+}
+
+.app-name{
+  color: #888;
   font-size: smaller;
 }
