@@ -1,33 +1,47 @@
-<div class='container py-5'>
-  <h3> <%= @posting.title %> </h3>
-    <p> Posted by: <%= @posting.user.email %> </p>
-    <br>
-    <p> <%= @posting.description %>. </p>
-    <!-- User.first.applications.find_by_posting_id(1) -->
-    <!-- if i posted the current post should be able to see the 'submit application' -->
-    <br>
+<div class='container-fluid bg-white pt-5'>
+  <div class="container">
+    <%= link_to "Back to Postings", "/postings", class: 'btn-green' %>
+    <div class='pt-5'>
+      <h3> <%= @posting.title %> </h3>
+      <p> Posted by: <%= @posting.user.email %> </p>
+      <br>
+      <p> <%= @posting.description %>. </p>
+      <!-- User.first.applications.find_by_posting_id(1) -->
+      <!-- if i posted the current post should be able to see the 'submit application' -->
+      <br>
+    </div>
+  </div>
+</div>
+<div class='py-5'>
+  <div class="container">
     <% if current_user.applications.find_by_posting_id(@posting.id).nil? %>
       <%= link_to "Submit an Application", new_posting_application_path(@posting), class: 'btn_green' %>
     <% elsif @posting.user == current_user %>
-      <div class="container">
-        <div class="container text-center">
-         <h5>Applications</h5>
-        </div>
+      <div class="container text-center">
+        <h5>Applications</h5>
+        <hr>
+      </div>
         <% @posting.applications.each do |application| %>
+          <div class="d-flex justify-content-start mb-4">
+            <img class="avatar" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+            <div class="container align-self-center app-name">
+              Application by #name
+            </div>
+          </div>
           <p><%= application.comment %></p>
           <% if @posting.user == current_user %>
-          <%= link_to 'Approve', "#", class: 'btn-green approve-link' %>
-          <hr>
+            <div class="text-right">
+              <%= link_to 'Approve', "#", class: 'btn btn-gradient approve-link' %>
+            </div>
+            <hr>
           <% end %>
         <% end %>
-        </div>
+      </div>
     <% else %>
       <div class="flash flash-success show" role="alert">
         <span><strong>Yay!</strong> 🎉 you successfully applied to this project!</span>
       </div>
     <% end %>
-   <div class="mt-3">
-    <%= link_to "Back to Postings", "/postings", class: 'btn-green' %>
-   </div>
 </div>
+
 

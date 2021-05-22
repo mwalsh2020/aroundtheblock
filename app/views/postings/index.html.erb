@@ -1,34 +1,43 @@
 
-  <div class="container py-5">
-    <h5> Welcome <%= current_user.email %>  </h5>
-    <br>
-    <div class="row align-items-lg-center">
-      <div class="col-8">
-        <h2 class="mb-4">List a Project</h2>
-        <div>
-          <%= simple_form_for @posting, method: :post do |f| %>
-            <%= f.input :title, cols: 30, rows: 1 %>
-            <%= f.input :price %>
-            <%= f.input :description, cols: 80, rows: 5, placeholder: "Describe your awesome project here. We know it's off the chain..." %>
-            <div style="height: 50px;" class="d-flex justify-content-between w-100">
+<div class="container py-5">
+  <h5> Welcome <%= current_user.email %>  </h5>
+  <br>
+  <div class="row align-items-lg-center">
+    <div class="col-8 order-md-1 col-lg-7 text-md-start">
+      <div class="form-box-outline">
+        <h2>List a Project</h2>
+        <%= simple_form_for @posting, method: :post do |f| %>
+          <%= f.input :title, cols: 30, rows: 1 %>
+          <%= f.input :price %>
+          <%= f.input :description, :as => :text, :input_html => { 'rows' => 5 }, placeholder: "Describe your awesome project here. We know it's off the chain..." %>
+          <div style="height: 50px;" class="d-flex justify-content-between w-100">
             <%#= f.input :photo, input_html: { class: 'd-none'} %>
             <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
             <%= f.submit 'Submit', class: 'btn btn-gradient'%>
-
-            </div>
-          <% end %>
-        </div>
-       </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-8 mx-auto col-md-4 order-md-2 col-lg-5">
+        <%= image_tag "undraw_Post_re_mtr4.svg", alt: "alttext", width: 500, class: 'img-fluid' %>
     </div>
   </div>
+</div>
+
+<div class="container-fluid bg-white">
   <div class="container py-5">
     <h2>Available Projects</h2>
     <br>
+    <hr>
     <% @postings.each do |posting| %>
-      <h5><strong><%= link_to posting.title, posting_path(posting) %></strong></h5>
-      <p><%= posting.description %></p>
-      <p>$<%= posting.price %></p>
-      <hr>
+      <div class="postig-mouseover">
+        <div class="d-flex justify-content-between w-100">
+          <h5><strong><%= link_to posting.title, posting_path(posting) %></h5>
+          <p>$<%= posting.price %></p></strong>
+        </div>
+        <p><%= posting.description %></p>
+        <hr>
+      </div>
     <% end %>
   </div>
-
+</div>
