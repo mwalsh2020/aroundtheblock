@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   resources :postings, except: :destroy do
     resources :applications, only: [:new, :create]
   end
+  resources :applications, only: [] do
+    member do
+      get "approve"
+    end
+  end
 end

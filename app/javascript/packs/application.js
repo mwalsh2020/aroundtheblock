@@ -23,10 +23,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { disapearApplications } from '../components/disapear';
-import { mouseoverPosting } from '../components/background_hover';
+// import { mouseoverPosting } from '../components/background_hover';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   disapearApplications();
-  mouseoverPosting();
+  // mouseoverPosting();
 });
