@@ -4,6 +4,7 @@ const disapearApplications = () => {
   links.forEach((link) => {
     link.addEventListener('click', function(event) {
       event.target.style.display = 'none';
+
       // alert('You just approved an application!');
     });
   });

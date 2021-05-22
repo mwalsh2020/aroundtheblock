@@ -21,7 +21,7 @@
         <h5>Applications</h5>
         <hr>
       </div>
-        <% @posting.applications.each do |application| %>
+        <% @posting.applications.where(is_accepted: false).each do |application| %>
           <div class="d-flex justify-content-start mb-4">
             <img class="avatar" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
             <div class="container align-self-center app-name">
@@ -31,7 +31,9 @@
           <p><%= application.comment %></p>
           <% if @posting.user == current_user %>
             <div class="text-right">
-              <%= link_to 'Approve', "#", class: 'btn btn-gradient approve-link' %>
+              <%= link_to 'Approve', approve_application_path(application), class: 'btn btn-gradient approve-link',
+                data: { confirm: "Are you sure?" }
+               %>
             </div>
             <hr>
           <% end %>

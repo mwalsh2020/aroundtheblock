@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-before_action :set_posting
+  before_action :set_posting, except: :approve
     # t.string "comment"
     # t.bigint "user_id"
     # t.bigint "posting_id"
@@ -18,6 +18,13 @@ before_action :set_posting
     else
       render :new
     end
+  end
+
+  def approve
+    @application = Application.find(params[:id])
+    @application.is_accepted = true
+    @application.save
+    redirect_to posting_path(@application.posting)
   end
 
   private
